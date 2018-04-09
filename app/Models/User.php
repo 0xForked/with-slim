@@ -18,4 +18,6 @@ class User extends Model
         'active'
     ];
 
+    public $timestamps = false;
+
 }

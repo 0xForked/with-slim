@@ -13,4 +13,6 @@ class Group extends Model
         'description',
     ];
 
+    public $timestamps = false;
+
 }

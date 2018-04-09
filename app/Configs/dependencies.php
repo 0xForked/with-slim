@@ -83,6 +83,11 @@ use PHPMailer\PHPMailer\PHPMailer;
     //     return new \App\Controllers\DefaultController($container);
     // };
 
+    $container['AuthLogin'] = function ($container)
+    {
+        return new \App\Http\Controllers\Authentication\Login($container);
+    };
+
 
 /*
 |----------------------------------------------------
