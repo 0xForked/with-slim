@@ -1,38 +1,43 @@
 <?php
 
-//Start php session
-session_start();
-
 /*
 |----------------------------------------------------
-| Register The Auto Loader
+| Start PHP Session                                 /
 |----------------------------------------------------
 */
 
-require __DIR__ . ('/../../vendor/autoload.php');
+    session_start();
 
 /*
 |----------------------------------------------------
-| Slim Framework Setting                            |
+| Register The 3rd Party Library                    /
 |----------------------------------------------------
 */
 
-$settings = require __DIR__ . '/settings.php';
-
-$app = new \Slim\App($settings);
+    require __DIR__ . ('/../../vendor/autoload.php');
 
 /*
 |----------------------------------------------------
-| File dependencies                                 |
+| This Application Setting                          /
 |----------------------------------------------------
 */
 
-require __DIR__  . ('/dependencies.php');
+    $settings = require __DIR__ . '/settings.php';
+
+    $app = new \Slim\App($settings);
 
 /*
 |----------------------------------------------------
-| File Router                                       |
+| Dependencies File                                 |
 |----------------------------------------------------
 */
 
-require __DIR__  . ('/../routes.php');
+    require __DIR__  . ('/dependencies.php');
+
+/*
+|----------------------------------------------------
+| Routers File                                      |
+|----------------------------------------------------
+*/
+
+    require __DIR__  . ('/../routes.php');

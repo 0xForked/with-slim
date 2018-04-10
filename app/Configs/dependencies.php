@@ -1,11 +1,12 @@
 <?php
 
-use Respect\Validation\Validator as ValidationRules;
+use Illuminate\Database\Capsule\Manager as Eloquent;
+use Respect\Validation\Validator as RespectValidation;
 use PHPMailer\PHPMailer\PHPMailer;
 
 /*
 |----------------------------------------------------
-| Container                                         |
+| Slim Container                                    |
 |----------------------------------------------------
 */
 
@@ -13,18 +14,18 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 /*
 |----------------------------------------------------
-| ORM                                               |
+| Eloquent ORM                                      |
 |----------------------------------------------------
 */
 
-    $capsule =  new \Illuminate\Database\Capsule\Manager;
+    $capsule =  new Eloquent();
     $capsule->addConnection($container['settings']['db']);
     $capsule->setAsGlobal();
     $capsule->bootEloquent();
 
 /*
 |----------------------------------------------------
-| Validator                                         |
+| Respect Validator                                 |
 |----------------------------------------------------
 */
 
@@ -33,11 +34,11 @@ use PHPMailer\PHPMailer\PHPMailer;
         return new \App\Validation\Validator($container);
     };
 
-    ValidationRules::with('App\\Validations\\Rules\\');
+    RespectValidation::with('App\\Validations\\Rules\\');
 
 /*
 |----------------------------------------------------
-| Mailer                                            |
+| PHP Mailer                                        |
 |----------------------------------------------------
 */
 
