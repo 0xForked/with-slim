@@ -78,11 +78,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 |----------------------------------------------------
 */
 
-    // $container['DefaultController'] = function ($container)
-    // {
-    //     return new \App\Controllers\DefaultController($container);
-    // };
-
     $container['AuthLogin'] = function ($container)
     {
         return new \App\Http\Controllers\Authentication\Login($container);
@@ -119,9 +114,20 @@ use PHPMailer\PHPMailer\PHPMailer;
         return $view;
     };
 
-    // $container['notFoundHandler'] = function ($container)
-    // {
-    //     return function ($request, $response) use ($container) {
-    //         return $container->view->render($response, 'error/_404.twig');
-    //     };
-    // };
+    $container['notFoundHandler'] = function ($container)
+    {
+        return function ($request, $response) use ($container)
+        {
+
+            // return $container->view->render($response, 'error/_404.twig');
+
+            $message = [
+                'code' => 404,
+                'dev_msg' => 'Not Found',
+                'user_msg' => 'Page Not Found'
+            ];
+
+            return $response->withJson($message);
+
+        };
+    };
