@@ -3,6 +3,11 @@
 use Illuminate\Database\Capsule\Manager as Eloquent;
 use Respect\Validation\Validator as RespectValidation;
 use PHPMailer\PHPMailer\PHPMailer;
+use App\Validation\Validator;
+use App\Mailers\Mailer;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FingersCrossedHandler;
 
 /*
 |----------------------------------------------------
@@ -25,13 +30,28 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 /*
 |----------------------------------------------------
+| Monolog Logger                                    |
+|----------------------------------------------------
+*/
+
+    $container['logger'] = function($c) {
+        $logger = new Logger('logger');
+        $logDir = __DIR__ . ('/../../public/logs/app.log');
+        $logHandler = new StreamHandler($logDir, Logger::DEBUG);
+        $logCrossedHandler = new FingersCrossedHandler($logHandler, Logger::ERROR);
+        $logger->pushHandler($logCrossedHandler);
+        return $logger;
+    };
+
+/*
+|----------------------------------------------------
 | Respect Validator                                 |
 |----------------------------------------------------
 */
 
     $container['validator'] = function ($container)
     {
-        return new \App\Validation\Validator($container);
+        return new Validator($container);
     };
 
     RespectValidation::with('App\\Validations\\Rules\\');
@@ -69,7 +89,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
         $mailer->isHtml(true);
 
-        return new \App\Mailers\Mailer($container->view, $mailer);
+        return new Mailer($container->view, $mailer);
 
     };
 
@@ -128,7 +148,7 @@ use PHPMailer\PHPMailer\PHPMailer;
                 'user_msg' => 'Page Not Found'
             ];
 
-            return $response->withJson($message);
+            return $response->withJson($message, 404);
 
         };
     };

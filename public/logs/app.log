@@ -1,0 +1,4 @@
+[2018-04-11 02:33:31] logger.CRITICAL: oppppppssss [] []
+[2018-04-11 02:33:31] logger.INFO: Something interesting happened [] []
+[2018-04-11 02:33:31] logger.WARNING: Foo [] []
+[2018-04-11 02:33:31] logger.ERROR: Bar [] []
