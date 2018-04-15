@@ -18,10 +18,10 @@ class GroupSeeder extends AbstractSeed
         $data = [
             [
                 'name' => 'root',
-                'description' => 'Super level administrator'
+                'description' => 'Super administrator level access'
             ],
             [
-                'name' => 'member',
+                'name' => 'pemulung',
                 'description' => 'Limited access users'
             ]
         ];

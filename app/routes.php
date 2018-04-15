@@ -9,9 +9,9 @@
 $app->get('/', function ($request, $response, $args)
 {
     //Test monolog for logger
-    // $this->logger->critical('oppppppssss');
-    // $this->logger->addInfo('Something interesting happened');
-    // $this->logger->warning('Foo');
+    // $this->logger->critical('oppppppssss', array('data' => 'test'));
+    // $this->logger->info('Something interesting happened', array('username' => 'asu'));
+    // $this->logger->warning('Foo', array('gg' => 'wp'));
     // $this->logger->error('Bar');
 
     return $response
