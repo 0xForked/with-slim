@@ -8,6 +8,9 @@ use App\Mailers\Mailer;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FingersCrossedHandler;
+use Slim\Views\Twig;
+use Slim\Views\TwigExtension;
+use App\Http\Controllers\Authentication\Login as AuthLogin;
 
 /*
 |----------------------------------------------------
@@ -101,9 +104,8 @@ use Monolog\Handler\FingersCrossedHandler;
 
     $container['AuthLogin'] = function ($container)
     {
-        return new \App\Http\Controllers\Authentication\Login($container);
+        return new AuthLogin($container);
     };
-
 
 /*
 |----------------------------------------------------
@@ -121,7 +123,7 @@ use Monolog\Handler\FingersCrossedHandler;
 
     $container['view'] = function ($container)
     {
-        $view = new \Slim\Views\Twig(
+        $view = new Twig(
             __DIR__ . '/../../resources/views/',
             [ 'cache' => false ]
         );
@@ -130,7 +132,7 @@ use Monolog\Handler\FingersCrossedHandler;
             $container['request']->getUri()->getBasePath()), '/'
         );
 
-        $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
+        $view->addExtension(new TwigExtension($container['router'], $basePath));
 
         return $view;
     };
@@ -141,7 +143,6 @@ use Monolog\Handler\FingersCrossedHandler;
         {
 
             // return $container->view->render($response, 'error/_404.twig');
-
             $message = [
                 'code' => 404,
                 'dev_msg' => 'Not Found',

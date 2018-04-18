@@ -3,7 +3,7 @@ paths:
     seeds: '%%PHINX_CONFIG_DIR%%/database/seeds'
 
 environments:
-    default_migration_table: phinxlog
+    default_migration_table: migration_logs
     default_database: aassite_dbs
     production:
         adapter: mysql
