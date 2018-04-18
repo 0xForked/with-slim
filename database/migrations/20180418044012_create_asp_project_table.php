@@ -7,11 +7,11 @@ class CreateAspProjectTable extends AbstractMigration
 {
     public function up()
     {
-        $asp_project = $this->table('asp_project');
+        $asp_project = $this->table('asp_projects');
         $asp_project->addColumn('_author_id', 'string', ['limit' => 75])
                     ->addColumn('_slug', 'string', ['limit' => 75])
-                    ->addColumn('_category', 'string', ['limit' => 75])
-                    ->addColumn('_tags', 'string', ['limit' => 75])
+                    ->addColumn('_category_id', 'string', ['limit' => 75])
+                    ->addColumn('_tag_id', 'string', ['limit' => 75])
                     ->addColumn('_title', 'string', ['limit' => 75])
                     ->addColumn('_description', 'string')
                     ->addColumn('_headline', 'integer', ['limit' => MysqlAdapter::INT_TINY])

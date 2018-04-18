@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class UserDetail extends Model
@@ -10,8 +10,8 @@ class UserDetail extends Model
 
     protected $fillable = [
         'uuid',
-        'guid',
-        'name',
+        'ugid',
+        'full_name',
         'avatar'
     ];
 

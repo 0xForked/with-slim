@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -15,7 +15,14 @@ class User extends Model
         'phone',
         'email',
         'password',
-        'active'
+        'activation_code',
+        'forgotten_password_time',
+        'status_acc',
+        'last_login'
+    ];
+
+    protected $guarded  = [
+        'password'
     ];
 
     public $timestamps = false;
