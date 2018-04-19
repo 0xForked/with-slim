@@ -3,7 +3,7 @@
 use Illuminate\Database\Capsule\Manager as Eloquent;
 use Respect\Validation\Validator as RespectValidation;
 use PHPMailer\PHPMailer\PHPMailer;
-use App\Validation\Validator;
+use App\Validations\Validator;
 use App\Mailers\Mailer;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -11,6 +11,7 @@ use Monolog\Handler\FingersCrossedHandler;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use App\Http\Controllers\Authentication\Login as AuthLogin;
+use App\Http\Middlewares\ValidationErrorsMiddlerware;
 
 /*
 |----------------------------------------------------
@@ -54,7 +55,7 @@ use App\Http\Controllers\Authentication\Login as AuthLogin;
 
     $container['validator'] = function ($container)
     {
-        return new Validator($container);
+        return new \App\Validations\Validator($container);
     };
 
     RespectValidation::with('App\\Validations\\Rules\\');
@@ -113,7 +114,7 @@ use App\Http\Controllers\Authentication\Login as AuthLogin;
 |----------------------------------------------------
 */
 
-    //$app->add(new \App\Middleware\ValidationErrorsMiddlerware($container));
+    $app->add(new ValidationErrorsMiddlerware($container));
 
 /*
 |----------------------------------------------------

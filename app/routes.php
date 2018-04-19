@@ -8,16 +8,14 @@
 
 $app->get('/', function ($request, $response, $args)
 {
-    //Test monolog for logger
-    // $this->logger->critical('oppppppssss', array('data' => 'test'));
-    // $this->logger->info('Something interesting happened', array('username' => 'asu'));
-    // $this->logger->warning('Foo', array('gg' => 'wp'));
-    // $this->logger->error('Bar');
 
     return $response
             ->withStatus(200, 'OK')
-            ->write('Hello Buddy, welcome to aassite service!');
+            ->write('Hello Buddy, Welcome to aassite API service!');
 
 });
 
-$app->get('/test', 'AuthLogin:index')->setName('login');
+$app->post('/v1/user/auth/login', 'AuthLogin:index')->setName('login');
+// $app->post('/v1/user/auth/register', 'AuthLogin:index')->setName('login');
+// $app->post('/v1/user/auth/password/change', 'AuthLogin:index')->setName('login');
+// $app->post('/v1/user/auth/password/reset', 'AuthLogin:index')->setName('login');

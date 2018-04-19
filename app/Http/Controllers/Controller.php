@@ -22,8 +22,6 @@ class Controller
     //Generate random md5 keys
     public function generateKey($MaxSize = 32)
     {
-        //return unique md5 random key
-        //return md5(uniqid(rand(), true));
 
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);

@@ -13,4 +13,7 @@ class Category extends Model
         '_description',
         '_count_used'
     ];
+
+    public $timestamps = false;
+
 }
