@@ -43,6 +43,6 @@ class Login extends Controller
 
     private function validatedUserData($email, $password)
     {
-        echo 'email '. $email . ' password '. $password;
+        $user = UsersModel::where('email', $email)->first();
     }
 }
