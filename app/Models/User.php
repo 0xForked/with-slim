@@ -10,7 +10,6 @@ class User extends Model
 
     protected $fillable = [
         'unique_id',
-        'unique_token',
         'username',
         'phone',
         'email',

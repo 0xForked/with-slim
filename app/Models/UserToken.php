@@ -3,18 +3,17 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class UserDetail extends Model
+class UserToken extends Model
 {
 
-    protected $table = 'users_details';
+    protected $table = 'users_token';
 
     protected $fillable = [
         'uuid',
-        'ugid',
-        'full_name',
-        'avatar'
+        'unique_token',
+        'token_created',
+        'token_expired'
     ];
 
     public $timestamps = false;
-
 }

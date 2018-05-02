@@ -7,7 +7,7 @@ environments:
     default_database: aassite_dbs
     production:
         adapter: mysql
-        host: localhost
+        host: 127.0.0.1
         name: aassite_dbs
         user: root
         pass: ''
@@ -16,7 +16,7 @@ environments:
 
     development:
         adapter: mysql
-        host: localhost
+        host: 127.0.0.1
         name: aassite_dbs
         user: root
         pass: ''
@@ -25,7 +25,7 @@ environments:
 
     testing:
         adapter: mysql
-        host: localhost
+        host: 127.0.0.1
         name: aassite_dbs
         user: root
         pass: ''

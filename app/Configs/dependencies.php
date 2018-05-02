@@ -11,6 +11,7 @@ use Monolog\Handler\FingersCrossedHandler;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use App\Http\Controllers\Authentication\Login as AuthLogin;
+use App\Http\Controllers\Authentication\Register as AuthRegis;
 use App\Http\Middlewares\ValidationErrorsMiddlerware;
 
 /*
@@ -103,10 +104,8 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
 |----------------------------------------------------
 */
 
-    $container['AuthLogin'] = function ($container)
-    {
-        return new AuthLogin($container);
-    };
+    $container['AuthLogin'] = function ($container){ return new AuthLogin($container); };
+    $container['AuthRegis'] = function ($container){ return new AuthRegis($container); };
 
 /*
 |----------------------------------------------------
