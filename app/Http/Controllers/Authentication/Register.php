@@ -15,8 +15,8 @@ class Register extends Controller
      * @author A. A. Sumitro
      * @link https://aasumitro.id
      * @category Userauth - login
-     * @param String email, password
-     * @return JSONdata
+     * @param String email, password etc.
+     * @return String Json Data
     */
     public function index($request, $response)
     {
@@ -39,7 +39,7 @@ class Register extends Controller
 
         $validation =  $this->validator->validate($request, [
             'username'      => V::noWhiteSpace()->notEmpty()->usernameAvailable(),
-            'phone'         => V::noWhiteSpace()->notEmpty(),
+            'phone'         => V::noWhiteSpace()->notEmpty()->phone(),
             'email'         => V::noWhiteSpace()->notEmpty()->email()->emailAvailable(),
             'password'      => V::noWhiteSpace()->notEmpty(),
             'fullname'      => V::notEmpty()->alpha()

@@ -104,8 +104,8 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
 |----------------------------------------------------
 */
 
-    $container['AuthLogin'] = function ($container){ return new AuthLogin($container); };
-    $container['AuthRegis'] = function ($container){ return new AuthRegis($container); };
+    $container['AuthLogin'] = function ($container) { return new AuthLogin($container); };
+    $container['AuthRegis'] = function ($container) { return new AuthRegis($container); };
 
 /*
 |----------------------------------------------------

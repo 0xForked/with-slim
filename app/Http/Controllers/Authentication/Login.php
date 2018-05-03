@@ -14,7 +14,7 @@ class Login extends Controller
      * @link https://aasumitro.id
      * @category Userauth - login
      * @param String email, password
-     * @return JSONdata
+     * @return String Json data
     */
     public function index($request, $response)
     {
