@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model

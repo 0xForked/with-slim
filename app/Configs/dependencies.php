@@ -88,7 +88,7 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
 
         $mailer->SMTPAuth = true;
         $mailer->Username = 'fookipoke@gmail.com';
-        $mailer->Password = 'fookipoke.password';
+        $mailer->Password = 'moxdisrlfzrlcbof';
 
         $mailer->setFrom('mail@aasumitro.id', 'Agus Adhi Sumitro');
 

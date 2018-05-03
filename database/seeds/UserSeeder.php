@@ -43,7 +43,6 @@ class UserSeeder extends AbstractSeed
             ],
         ];
 
-
         $user = $this->table('users');
         $user->insert($user_seed)
              ->save();
@@ -54,6 +53,6 @@ class UserSeeder extends AbstractSeed
 
         $user_token = $this->table('users_token');
         $user_token->insert($user_token_seed)
-                    ->save();
+                   ->save();
     }
 }
