@@ -12,7 +12,9 @@ use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use App\Http\Controllers\Authentication\Login as AuthLogin;
 use App\Http\Controllers\Authentication\Register as AuthRegis;
-use App\Http\Middlewares\ValidationErrorsMiddlerware;
+use App\Http\Controllers\Authentication\Personalinfo as UserData;
+use App\Http\Middlewares\ValidationErrorsMiddlerware as ValidatorMidd;
+use App\Http\Middlewares\Authentication as AuthMidd;
 
 /*
 |----------------------------------------------------
@@ -90,7 +92,7 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
         $mailer->Username = 'fookipoke@gmail.com';
         $mailer->Password = 'moxdisrlfzrlcbof';
 
-        $mailer->setFrom('mail@aasumitro.id', 'Agus Adhi Sumitro');
+        $mailer->setFrom('hello@aasumitro.id', 'Agus Adhi Sumitro');
 
         $mailer->isHtml(true);
 
@@ -106,6 +108,7 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
 
     $container['AuthLogin'] = function ($container) { return new AuthLogin($container); };
     $container['AuthRegis'] = function ($container) { return new AuthRegis($container); };
+    $container['UserData'] = function ($container) { return new UserData($container); };
 
 /*
 |----------------------------------------------------
@@ -113,11 +116,13 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
 |----------------------------------------------------
 */
 
-    $app->add(new ValidationErrorsMiddlerware($container));
+    $app->add(new ValidatorMidd($container));
+    $container['MiddAuth'] = function ($container) { return new AuthMidd($container); };
+
 
 /*
 |----------------------------------------------------
-| Template                                          |
+| Twig                                              |
 |----------------------------------------------------
 */
 
@@ -142,7 +147,6 @@ use App\Http\Middlewares\ValidationErrorsMiddlerware;
         return function ($request, $response) use ($container)
         {
 
-            // return $container->view->render($response, 'error/_404.twig');
             $message = [
                 'code' => 404,
                 'dev_msg' => 'Not Found',

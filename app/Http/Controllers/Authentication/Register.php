@@ -32,7 +32,8 @@ class Register extends Controller
         $unique_token = $this->generateKey(64);
 
         $token_created = time();
-        $token_expired = 10;
+        //token expired 30 mins - 60 x 30 = 1800
+        $token_expired = 1800;
 
         $user_group = 2;
         $status_account = 1;

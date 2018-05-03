@@ -49,10 +49,11 @@ class Login extends Controller
 
             if (password_verify($password, $user->password)) {
 
+                //token expired 30 mins - 60 x 30 = 1800
                 $tokens = UserToken::where('uuid', $user->unique_id)->update([
                     'unique_token'    => $this->generateKey(64),
                     'token_created'   => time(),
-                    'token_expired'   => 30
+                    'token_expired'   => 1800
                 ]);
 
                 if ($tokens) {
