@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Reset Password | aassite service </title>
+    </head>
+    <body>
+        <div class="containter">
+            <div class="content">
+
+                <h2>Reset password link</h2>
+                <p>
+                    Hello <span> {{ fullname }}</span>, a minute ago you has
+                    <br>been request to change your password pelase follow,
+                    <br>this link below to change your password :
+                    <br> <a href="http://localhost:8080/user/password/change?code={{ forgotcode }}&email={{ email }}">Forgot password link</a>
+                    <br>
+                    <br>PS: This link will deactive in 15 minutes
+                    <br>
+                    <br>Best Regards
+                    <br>A. A. Sumitro
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

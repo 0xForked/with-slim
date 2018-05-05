@@ -13,6 +13,7 @@ use Slim\Views\TwigExtension;
 use App\Http\Controllers\Authentication\Login as AuthLogin;
 use App\Http\Controllers\Authentication\Register as AuthRegis;
 use App\Http\Controllers\Authentication\Personalinfo as UserData;
+use App\Http\Controllers\Authentication\Password as UserPwd;
 use App\Http\Middlewares\ValidationErrorsMiddlerware as ValidatorMidd;
 use App\Http\Middlewares\Authentication as AuthMidd;
 
@@ -109,6 +110,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
     $container['AuthLogin'] = function ($container) { return new AuthLogin($container); };
     $container['AuthRegis'] = function ($container) { return new AuthRegis($container); };
     $container['UserData'] = function ($container) { return new UserData($container); };
+    $container['UserPwd'] = function ($container) { return new UserPwd($container); };
 
 /*
 |----------------------------------------------------
