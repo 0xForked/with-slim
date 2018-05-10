@@ -39,7 +39,7 @@ class UserSeeder extends AbstractSeed
                 'uuid' => 'adXbw3jensZlsSur0fYkTIfpDPrvLgDK',
                 'unique_token' => 'L2nGqCsjjLzXRWJ9gq6Fxesnlb2xjYQ0TiKoDUifi8W0Rkl3L6MJh6YX2UN5yk8f',
                 'token_created' => time(),
-                'token_expired' => '30'
+                'token_expired' => '1800'
             ],
         ];
 

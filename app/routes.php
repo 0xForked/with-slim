@@ -21,5 +21,3 @@ $app->get('/personal-info', 'UserData:index')->add('MiddAuth')->setName('user_da
 $app->get('/password-reset', 'UserPwd:reset')->setName('user_password_reset');
 $app->post('/password-change-after-email', 'UserPwd:changeAfterEmail')->setName('user_password_change_after_email');
 $app->post('/password-change-with-token', 'UserPwd:changeToken')->add('MiddAuth')->setName('user_password_change_with_token');
-
-$app->post('/test', 'UserPwd:test')->setName('test');
