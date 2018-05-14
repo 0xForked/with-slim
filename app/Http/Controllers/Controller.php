@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 class Controller
 {
 
@@ -19,7 +19,7 @@ class Controller
         }
     }
 
-    //Generate random md5 keys
+    //Generate random keys
     public function generateKey($MaxSize = 32)
     {
 

@@ -28,7 +28,7 @@ class Personalinfo extends Controller
                 'result'   => [
                     'access_token'  => $user_token->unique_token,
                     'user_id'       => $user->unique_id,
-                    'username'      => "@".$user->username,
+                    'username'      => $user->username,
                     'phone'         => $user->phone,
                     'email'         => $user->email,
                     'fullname'      => $user_detail->full_name,
@@ -44,7 +44,7 @@ class Personalinfo extends Controller
                 'status' => 400,
                 'error' => true,
                 'dev_msg' => 'Bad Request',
-                'user_msg' => 'Invalid user unique id or user unique token'
+                'user_msg' => 'Invalid user unique id'
             ),400);
 
         }

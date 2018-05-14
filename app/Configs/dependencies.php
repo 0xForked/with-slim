@@ -14,6 +14,7 @@ use App\Http\Controllers\Authentication\Login as AuthLogin;
 use App\Http\Controllers\Authentication\Register as AuthRegis;
 use App\Http\Controllers\Authentication\Personalinfo as UserData;
 use App\Http\Controllers\Authentication\Password as UserPwd;
+use App\Http\Controllers\BackOffice\Articles as BOArticle;
 use App\Http\Middlewares\ValidationErrorsMiddlerware as ValidatorMidd;
 use App\Http\Middlewares\Authentication as AuthMidd;
 
@@ -111,6 +112,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
     $container['AuthRegis'] = function ($container) { return new AuthRegis($container); };
     $container['UserData'] = function ($container) { return new UserData($container); };
     $container['UserPwd'] = function ($container) { return new UserPwd($container); };
+    $container['BOArticle'] = function ($container) { return new BOArticle($container); };
 
 /*
 |----------------------------------------------------
