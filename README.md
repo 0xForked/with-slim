@@ -23,6 +23,3 @@ Build in with [Slim 3](https://slimframework.com)
 
         PHP -S localhost:8080 -t public or composer start
 
-
-### Learn more
-    https://www.youtube.com/playlist?list=PLfdtiltiRHWGc_yY90XRdq6mRww042aEC
