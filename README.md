@@ -21,5 +21,5 @@ Build in with [Slim 3](https://slimframework.com)
 
     Run This Service
 
-        PHP -S localhost:8080 -t public or composer start
+        composer start
 

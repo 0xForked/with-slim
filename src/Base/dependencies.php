@@ -84,6 +84,16 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 
 /*
 |----------------------------------------------------
+|  Flash                                            |
+|----------------------------------------------------
+*/
+
+    $container['flash'] = function ($container) {
+        return new \Slim\Flash\Messages;
+    };
+
+/*
+|----------------------------------------------------
 | Twig & View                                       |
 |----------------------------------------------------
 */
@@ -105,6 +115,8 @@ use App\Http\Middlewares\Authentication as AuthMidd;
             'check' => $container->auth->check(),
             'user' => $container->auth->user()
         ]);
+
+        $view->getEnvironment()->addGlobal('flash', $container->flash);
 
         return $view;
     };

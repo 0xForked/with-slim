@@ -26,4 +26,11 @@ class User extends Model
 
     public $timestamps = false;
 
+    public function setPassword($password)
+    {
+        $this->update([
+            'password' => password_hash($password, PASSWORD_DEFAULT)
+        ]);
+    }
+
 }

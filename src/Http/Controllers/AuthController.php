@@ -35,6 +35,8 @@ class AuthController extends Controller
             'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT)
         ]);
 
+        $this->flash->addMessage('info', 'Your have been signed up!');
+
         $this->auth->attempt($user->email, $request->getParam('password'));
 
         return $response->withRedirect($this->router->pathFor('home'));
@@ -53,6 +55,7 @@ class AuthController extends Controller
         );
 
         if (!$auth) {
+            $this->flash->addMessage('error', "Your data didn't match!");
             return $response->withRedirect($this->router->pathFor('auth.signin'));
         }
 
@@ -66,4 +69,26 @@ class AuthController extends Controller
         return $response->withRedirect($this->router->pathFor('home'));
     }
 
+    public function getChagePassword($request, $response)
+    {
+        // return password view
+    }
+
+    public function postChagePassword($request, $response)
+    {
+        $validation = $this->validator->validate($request, [
+            'password_old' => Validator::noWhitespace()->notEmpty()->matchesPassword($this->auth->user()->password),
+            'password_new' => Validator::noWhitespace()->notEmpty()
+        ]);
+
+        if ($validation->failed()) {
+            // return password view
+        }
+
+        $this->auth->user()->setPassword($request->getParam('password_new'));
+
+        $this->flash->addMessage('Info', "Your password was changed!");
+
+        // return redirect view
+    }
 }
