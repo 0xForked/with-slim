@@ -1,0 +1,37 @@
+{% extends "/template/base.twig" %}
+{% block title %}With Slim{% endblock %}
+{% block body_content %}
+
+     <div class="row">
+        <div class="col-md-12 col-md-offset-3">
+            <div class="card" style="width:50%">
+                <div class="card-header text-center">
+                    Login
+                </div>
+                <div class="card-body" >
+                    <form action="{{ path_for('auth.signin') }}" method="post">
+                        <div class="form-group">
+                            <input type="email" class="form-control {{ errors.email ? 'is-invalid' : ''}} " id="email" name="email" aria-describedby="emailHelp" placeholder="you@domain.com" value="{{ old.email }}">
+                            {% if errors.email %}
+                                <small id="emailHelp" class="form-text text-muted text-success">
+                                    {{ errors.email | first }}
+                                </small>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control {{ errors.password ? 'is-invalid' : ''}}" id="password" name="password" placeholder="Password">
+                            {% if errors.password %}
+                                <small id="usernameHelp" class="form-text text-muted text-success">
+                                    {{ errors.password | first }}
+                                </small>
+                            {% endif %}
+                        </div>
+                        <button class="btn btn-primary" type="submit">Login</button>
+                        {{ csrf.field | raw }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

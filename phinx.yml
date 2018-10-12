@@ -4,31 +4,31 @@ paths:
 
 environments:
     default_migration_table: migration_logs
-    default_database: aassite_dbs
+    default_database: slims_dbs
     production:
         adapter: mysql
         host: 127.0.0.1
-        name: aassite_dbs
-        user: root
-        pass: ''
+        name: slims_dbs
+        user: foki
+        pass: poke
         port: 3306
         charset: utf8
 
     development:
         adapter: mysql
         host: 127.0.0.1
-        name: aassite_dbs
-        user: root
-        pass: ''
+        name: slims_dbs
+        user: foki
+        pass: poke
         port: 3306
         charset: utf8
 
     testing:
         adapter: mysql
         host: 127.0.0.1
-        name: aassite_dbs
-        user: root
-        pass: ''
+        name: slims_dbs
+        user: foki
+        pass: poke
         port: 3306
         charset: utf8
 

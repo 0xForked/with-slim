@@ -26,33 +26,9 @@ class UserSeeder extends AbstractSeed
             ],
         ];
 
-        $user_detail_seed = [
-            [
-                'uuid' => 'adXbw3jensZlsSur0fYkTIfpDPrvLgDK',
-                'ugid' => 1,
-                'full_name' => 'Agus Adhi Sumitro'
-            ],
-        ];
-
-        $user_token_seed = [
-            [
-                'uuid' => 'adXbw3jensZlsSur0fYkTIfpDPrvLgDK',
-                'unique_token' => 'L2nGqCsjjLzXRWJ9gq6Fxesnlb2xjYQ0TiKoDUifi8W0Rkl3L6MJh6YX2UN5yk8f',
-                'token_created' => time(),
-                'token_expired' => '1800'
-            ],
-        ];
-
         $user = $this->table('users');
         $user->insert($user_seed)
              ->save();
 
-        $user_detail = $this->table('users_details');
-        $user_detail->insert($user_detail_seed)
-                    ->save();
-
-        $user_token = $this->table('users_token');
-        $user_token->insert($user_token_seed)
-                   ->save();
     }
 }
