@@ -13,7 +13,7 @@ class AuthController extends Controller
 
     public function getSignUp($request, $response)
     {
-        return $this->view->render($response, 'register.twig');
+        return $this->view->render($response, 'auth/register.twig');
     }
 
     public function postSignUp($request, $response)
@@ -44,7 +44,7 @@ class AuthController extends Controller
 
     public function getSignIn($request, $response)
     {
-        return $this->view->render($response, 'login.twig');
+        return $this->view->render($response, 'auth/login.twig');
     }
 
     public function postSignIn($request, $response)
@@ -91,4 +91,15 @@ class AuthController extends Controller
 
         // return redirect view
     }
+
+    public function getForgotPassword()
+    {
+
+    }
+
+    public function postForgotPassword()
+    {
+
+    }
+
 }

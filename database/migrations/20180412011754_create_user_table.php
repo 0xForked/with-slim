@@ -33,4 +33,5 @@ class CreateUserTable extends AbstractMigration
     {
 
     }
+
 }

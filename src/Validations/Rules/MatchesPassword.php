@@ -12,11 +12,11 @@ class MatchesPassword extends AbstractRule
 
     public function __construct($password)
     {
-        $this->password = $password
+        $this->password = $password;
     }
 
     public function validate($input)
     {
-        return password_verify($input, $this->password)
+        return password_verify($input, $this->password);
     }
 }

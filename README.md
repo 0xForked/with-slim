@@ -19,6 +19,10 @@ Build in with [Slim 3](https://slimframework.com)
 
     n-option = testing, development or production (phinx.yml)
 
+    Install Libs
+
+        composer install
+
     Run This Service
 
         composer start
