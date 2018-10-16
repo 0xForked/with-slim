@@ -11,7 +11,10 @@ Build in with [Slim 3](https://slimframework.com)
 5. [Monolog](https://github.com/Seldaek/monolog) - Logging For PHP
 
 ### How To Use?
-
+    Make Migration
+        vendor/bin/phinx create [name]
+    Make Seed
+        vendor/bin/phinx seed:create [name]
     Run Migration
         vendor/bin/phinx migrate -e [option]
     Run Seed
