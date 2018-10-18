@@ -10,6 +10,9 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FingersCrossedHandler;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
+use Slim\Flash\Messages;
+use App\Base\Auth;
+use Slim\Csrf\Guard;
 
 use App\Http\Middlewares\ValidationErrorsMiddlerware as ValidatorMidd;
 use App\Http\Middlewares\Authentication as AuthMidd;
@@ -69,7 +72,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 */
 
     $container['csrf'] = function ($container) {
-        return new \Slim\Csrf\Guard;
+        return new Guard;
     };
 
 /*
@@ -79,7 +82,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 */
 
     $container['auth'] = function ($container) {
-        return new \App\Auth\Auth;
+        return new Auth;
     };
 
 /*
@@ -89,7 +92,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 */
 
     $container['flash'] = function ($container) {
-        return new \Slim\Flash\Messages;
+        return new Messages;
     };
 
 /*

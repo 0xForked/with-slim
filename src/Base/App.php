@@ -22,7 +22,7 @@
 |----------------------------------------------------
 */
 
-    $settings = require __DIR__ . '/settings.php';
+    $settings = require __DIR__ . '/Settings.php';
 
     $app = new \Slim\App($settings);
 
@@ -32,21 +32,21 @@
 |----------------------------------------------------
 */
 
-    require __DIR__  . ('/dependencies.php');
+    require __DIR__  . ('/Dependencies.php');
 
 /*
 |----------------------------------------------------
 | Dependencies File                                 |
 |----------------------------------------------------
 */
-    require __DIR__  . ('/controller.php');
+    require __DIR__  . ('/Controller.php');
 
 /*
 |----------------------------------------------------
 | Dependencies File                                 |
 |----------------------------------------------------
 */
-    require __DIR__  . ('/middleware.php');
+    require __DIR__  . ('/Middleware.php');
 
 /*
 |----------------------------------------------------
