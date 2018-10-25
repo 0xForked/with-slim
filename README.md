@@ -1,8 +1,8 @@
-# with-slim
+## with-slim
 
 Build in with [Slim 3](https://slimframework.com)
 
-## Library
+### Library
 
 1. [Eloquent](https://github.com/illuminate/database) - ORM DB
 2. [Twig](https://github.com/twigphp/Twig) - Template
@@ -11,6 +11,7 @@ Build in with [Slim 3](https://slimframework.com)
 5. [Monolog](https://github.com/Seldaek/monolog) - Logging For PHP
 
 ### How To Use?
+
     Make Migration
         vendor/bin/phinx create [name]
     Make Seed
@@ -30,3 +31,11 @@ Build in with [Slim 3](https://slimframework.com)
 
         composer start
 
+### Example App!
+
+1. [Blog](https//github.com/aasumitro/with-slim)
+2. [Forum](https//github.com/aasumitro/with-slim)
+
+### License
+
+with-slim is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
