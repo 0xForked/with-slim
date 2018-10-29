@@ -1,11 +1,11 @@
 ## with-slim
 
-Build in with [Slim 3](https://slimframework.com)
+Full-stack made easy with [Slim 3](https://slimframework.com)
 
 ### Library
 
 1. [Eloquent](https://github.com/illuminate/database) - ORM DB
-2. [Twig](https://github.com/twigphp/Twig) - Template
+2. [Twig](https://github.com/twigphp/Twig) - Template Engine
 3. [PHPMailer](https://github.com/PHPMailer/PHPMailer) - Mailler
 4. [Phinx](https://github.com/cakephp/phinx) - DB Migration
 5. [Monolog](https://github.com/Seldaek/monolog) - Logging For PHP
