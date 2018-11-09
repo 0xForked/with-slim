@@ -13,7 +13,8 @@
         "robmorgan/phinx": "^0.9.2",
         "monolog/monolog": "^1.23",
         "slim/csrf": "^0.8.3",
-        "slim/flash": "^0.4.0"
+        "slim/flash": "^0.4.0",
+        "vlucas/phpdotenv": "^2.5"
     },
     "autoload": {
         "psr-4": {
@@ -28,6 +29,13 @@
        }
     ],
     "scripts": {
+        "install-app": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "composer install",
+            "vendor/bin/phinx migrate -e development",
+            "vendor/bin/phinx seed:run -e development",
+            "php -S localhost:8080 -t public"
+        ],
         "start": "php -S localhost:8080 -t public"
     }
 }

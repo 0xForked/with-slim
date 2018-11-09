@@ -31,6 +31,10 @@ Full-stack made easy with [Slim 3](https://slimframework.com)
 
         composer start
 
+    Simple installation (auto migration, seed, install dep and run)
+
+        composer install-app
+
 ### Example App!
 
 1. [Blog](https//github.com/aasumitro/with-slim)

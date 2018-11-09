@@ -2,3 +2,4 @@ vendor/
 .vscode/
 *.txt
 composer.lock
+.env
