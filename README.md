@@ -1,4 +1,4 @@
-## with-slim
+## with-slim skeleton
 
 Full-stack made easy with [Slim 3](https://slimframework.com)
 
@@ -9,6 +9,7 @@ Full-stack made easy with [Slim 3](https://slimframework.com)
 3. [PHPMailer](https://github.com/PHPMailer/PHPMailer) - Mailler
 4. [Phinx](https://github.com/cakephp/phinx) - DB Migration
 5. [Monolog](https://github.com/Seldaek/monolog) - Logging For PHP
+6. [PHPdotEnv](https://github.com/)
 
 ### How To Use?
 
