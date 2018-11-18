@@ -3,6 +3,7 @@
 return [
     'settings' => [
         'displayErrorDetails' => env('APP_DEBUG', false),
+
         'db' => [
             'driver'        => env('APP_DB_DRIVER', 'mysql'),
             'host'          => env('APP_DB_HOST', 'localhost'),
@@ -13,5 +14,7 @@ return [
             'collation'     => env('APP_DB_COLLATION', 'utf8_unicode_ci'),
             'prefix'        => ''
         ]
+
     ],
+
 ];

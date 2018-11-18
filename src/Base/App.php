@@ -22,8 +22,8 @@
 |----------------------------------------------------
 */
 
-    require __DIR__ . '/Helper.php';
-
+require __DIR__ . '/Helper/EnvHelper.php';
+require __DIR__ . '/Helper/DumpHelper.php';
 
 /*
 |----------------------------------------------------

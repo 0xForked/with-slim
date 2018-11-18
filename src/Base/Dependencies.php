@@ -12,6 +12,8 @@ use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use Slim\Flash\Messages;
 use App\Base\Auth;
+use App\Base\Helper\ImageHelper;
+use App\Base\Helper\StringHelper;
 use Slim\Csrf\Guard;
 
 use App\Http\Middlewares\ValidationErrorsMiddlerware as ValidatorMidd;
@@ -84,6 +86,27 @@ use App\Http\Middlewares\Authentication as AuthMidd;
     $container['auth'] = function ($container) {
         return new Auth;
     };
+
+/*
+|----------------------------------------------------
+|  Image                                            |
+|----------------------------------------------------
+*/
+
+$container['imageHelper'] = function ($container) {
+    return new ImageHelper;
+};
+
+/*
+|----------------------------------------------------
+|  String                                           |
+|----------------------------------------------------
+*/
+
+$container['stringHelper'] = function ($container) {
+    return new StringHelper;
+};
+
 
 /*
 |----------------------------------------------------
