@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validations\Rules;
+namespace App\Base\Validations\Rules;
 
 use Respect\Validation\Rules\AbstractRule;
 use App\Models\User;

@@ -20,6 +20,12 @@ $app->group('', function() {
     $this->get('/register', 'AuthController:getSignUp')->setName('auth.signup');
     $this->post('/register', 'AuthController:postSignUp');
 
+    $this->get('/password/forgot', 'AuthController:getForgotPassword')->setName('auth.password.forgot');
+    $this->post('/password/forgot', 'AuthController:postForgotPassword');
+
+    $this->get('/password/change', 'AuthController:getChagePassword')->setName('auth.password.change');
+    $this->post('/password/change', 'AuthController:postChagePassword');
+
 })->add(new GuestMiddleware($container));
 
 

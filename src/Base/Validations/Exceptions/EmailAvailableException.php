@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Validations\Exceptions;
+namespace App\Base\Validations\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;
 
-class EmailAvailableException extends ValidationException 
+class EmailAvailableException extends ValidationException
 {
     public static $defaultTemplates = [
         self::MODE_DEFAULT => [

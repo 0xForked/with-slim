@@ -64,7 +64,33 @@ use App\Http\Middlewares\Authentication as AuthMidd;
         return new Validator($container);
     };
 
-    RespectValidation::with('Src\\Validations\\Rules\\');
+    RespectValidation::with('Src\\Base\\Validations\\Rules\\');
+
+/*
+|----------------------------------------------------
+| Mailer                                            |
+|----------------------------------------------------
+*/
+    $container['mailer'] = function ($container) {
+        $mailer = new PHPMailer();
+        //$mailer->SMTPDebug = 3;
+        $mailer->isSMTP();
+        $mailer->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        //$mailer->Host = 'tsl://smtp.gmail.com:587';
+        $mailer->Host = 'ssl://smtp.gmail.com:465';
+        $mailer->SMTPAuth = true;
+        $mailer->Username = env('MAIL_ADR', 'hello@fokipoke.com');
+        $mailer->Password = env('MAIL_PWD', 'password');
+        $mailer->setFrom('fookipoke@gmail.com', 'FookiPoke Studio');
+        $mailer->isHtml(true);
+        return new \App\Base\Mailer\Mail($container->view, $mailer);
+    };
 
 
 /*
@@ -154,3 +180,12 @@ $container['stringHelper'] = function ($container) {
             return $container->view->render($response, '/error/404.twig');
         };
     };
+
+
+/*
+|----------------------------------------------------
+| Upload Files                                      |
+|----------------------------------------------------
+*/
+
+$container['uploadDirectory'] = __DIR__ . '/../../public/assets/img/uploads/';

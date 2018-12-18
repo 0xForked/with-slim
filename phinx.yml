@@ -4,11 +4,11 @@ paths:
 
 environments:
     default_migration_table: migration_logs
-    default_database: slims_dbs
+    default_database: with_slim_db
     production:
         adapter: mysql
         host: 127.0.0.1
-        name: slims_dbs
+        name: with_slim_db
         user: foki
         pass: poke
         port: 3306
@@ -17,7 +17,7 @@ environments:
     development:
         adapter: mysql
         host: 127.0.0.1
-        name: slims_dbs
+        name: with_slim_db
         user: foki
         pass: poke
         port: 3306
@@ -26,7 +26,7 @@ environments:
     testing:
         adapter: mysql
         host: 127.0.0.1
-        name: slims_dbs
+        name: with_slim_db
         user: foki
         pass: poke
         port: 3306

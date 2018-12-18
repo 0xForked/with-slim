@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validations\Exceptions;
+namespace App\Base\Validations\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;
 
