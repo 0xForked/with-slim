@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Base\Helper;
-
-class StringHelper
-{
-
-    public function snakeCase($input) {
+if (!function_exists('snakeCase')) {
+    function snakeCase($input)
+    {
         preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $input, $matches);
         $ret = $matches[0];
         foreach ($ret as &$match) {
@@ -13,8 +10,11 @@ class StringHelper
         }
         return implode('_', $ret);
     }
+}
 
-    public function dashCase($input) {
+if (!function_exists('dashCase')) {
+    function dashCase($input)
+    {
         preg_match_all('!([A-Z][A-Z0-9]*(?=$|[A-Z][a-z0-9])|[A-Za-z][a-z0-9]+)!', $input, $matches);
         $ret = $matches[0];
         foreach ($ret as &$match) {
@@ -22,8 +22,10 @@ class StringHelper
         }
         return implode('-', $ret);
     }
+}
 
-    public function randomString($MaxSize = 32)
+if (!function_exists('randomString')) {
+    function randomString($MaxSize = 32)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -33,5 +35,4 @@ class StringHelper
         }
         return $randomString;
     }
-
 }

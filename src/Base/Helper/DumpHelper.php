@@ -8,7 +8,7 @@ if (!function_exists('dd')) {
     }
 }
 
-if (!function_exists('dd_je')) {
+if (!function_exists('dd_json')) {
     function dd_je($string)
     {
         var_dump(json_encode($string));
