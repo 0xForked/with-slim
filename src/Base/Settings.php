@@ -3,6 +3,7 @@
 return [
     'settings' => [
         'displayErrorDetails' => env('APP_DEBUG', false),
+        'determineRouteBeforeAppMiddleware' => true,
 
         'db' => [
             'driver'        => env('APP_DB_DRIVER', 'mysql'),
@@ -13,8 +14,13 @@ return [
             'charset'       => env('APP_DB_CHARSET', 'utf8'),
             'collation'     => env('APP_DB_COLLATION', 'utf8_unicode_ci'),
             'prefix'        => ''
-        ]
+        ],
 
+        'logger' => [
+            'name' => 'with_slim_log',
+            'level' => Monolog\Logger::DEBUG,
+            'path' => __DIR__ . ('/../../logs/app.log'),
+        ],
     ],
 
 ];

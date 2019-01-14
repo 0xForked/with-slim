@@ -7,7 +7,6 @@ use App\Validations\Validator;
 use App\Mailers\Mailer;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FingersCrossedHandler;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use Slim\Flash\Messages;
@@ -44,12 +43,11 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 |----------------------------------------------------
 */
 
-    $container['logger'] = function($c) {
-        $logger = new Logger('logger');
-        $logDir = __DIR__ . ('/../../logs/app.log');
-        $logHandler = new StreamHandler($logDir, Logger::DEBUG);
-        $logCrossedHandler = new FingersCrossedHandler($logHandler, Logger::ERROR);
-        $logger->pushHandler($logCrossedHandler);
+    $container['logger'] = function ($c) {
+        $settings = $c->get('settings')['logger'];
+        $logger = new Logger($settings['name']);
+        $logger->pushProcessor(new Monolog\Processor\UidProcessor());
+        $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
         return $logger;
     };
 
@@ -59,8 +57,7 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 |----------------------------------------------------
 */
 
-    $container['validator'] = function ($container)
-    {
+    $container['validator'] = function ($container) {
         return new Validator($container);
     };
 
@@ -119,19 +116,9 @@ use App\Http\Middlewares\Authentication as AuthMidd;
 |----------------------------------------------------
 */
 
-$container['imageHelper'] = function ($container) {
-    return new ImageHelper;
-};
-
-/*
-|----------------------------------------------------
-|  String                                           |
-|----------------------------------------------------
-*/
-
-$container['stringHelper'] = function ($container) {
-    return new StringHelper;
-};
+    $container['imageHelper'] = function ($container) {
+        return new ImageHelper;
+    };
 
 
 /*
@@ -188,4 +175,4 @@ $container['stringHelper'] = function ($container) {
 |----------------------------------------------------
 */
 
-$container['uploadDirectory'] = __DIR__ . '/../../public/assets/img/uploads/';
+    $container['uploadDirectory'] = __DIR__ . '/../../public/assets/img/uploads/';
