@@ -14,7 +14,7 @@
 |----------------------------------------------------
 */
 
-    require __DIR__ . ('/../../vendor/autoload.php');
+    require_once __DIR__ . ('/../../vendor/autoload.php');
 
 /*
 |----------------------------------------------------
@@ -22,9 +22,9 @@
 |----------------------------------------------------
 */
 
-    require __DIR__ . '/Helper/EnvHelper.php';
-    require __DIR__ . '/Helper/DumpHelper.php';
-    require __DIR__ . '/Helper/StringHelper.php';
+    require_once __DIR__ . '/Helper/EnvHelper.php';
+    require_once __DIR__ . '/Helper/DumpHelper.php';
+    require_once __DIR__ . '/Helper/StringHelper.php';
 
 /*
 |----------------------------------------------------
