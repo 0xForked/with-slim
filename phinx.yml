@@ -4,31 +4,31 @@ paths:
 
 environments:
     default_migration_table: migration_logs
-    default_database: with_slim_db
+    default_database: repas_db
     production:
         adapter: mysql
         host: 127.0.0.1
-        name: with_slim_db
-        user: foki
-        pass: poke
+        name: repas_db
+        user: root
+        pass: root
         port: 3306
         charset: utf8
 
     development:
         adapter: mysql
         host: 127.0.0.1
-        name: with_slim_db
-        user: foki
-        pass: poke
+        name: repas_db
+        user: root
+        pass: root
         port: 3306
         charset: utf8
 
     testing:
         adapter: mysql
         host: 127.0.0.1
-        name: with_slim_db
-        user: foki
-        pass: poke
+        name: repas_db
+        user: root
+        pass: root
         port: 3306
         charset: utf8
 

@@ -11,42 +11,6 @@ use Respect\Validation\Validator;
 class AuthController extends Controller
 {
 
-    public function getSignUp($request, $response)
-    {
-        return $this->view->render($response, 'auth/register.twig');
-    }
-
-    public function postSignUp($request, $response)
-    {
-
-        $validation = $this->validator->validate($request, [
-            'email' => Validator::noWhitespace()->notEmpty(),
-            'username' => Validator::noWhitespace()->notEmpty(),
-            'password' => Validator::noWhitespace()->notEmpty()
-        ]);
-
-        if ($validation->failed()) {
-            return $response->withRedirect($this->router->pathFor('auth.signup'));
-        }
-
-        $user = User::create([
-            'email' => $request->getParam('email'),
-            'username' => $request->getParam('username'),
-            'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT)
-        ]);
-
-        if (!$user) {
-            $this->flash->addMessage('error', 'Failed registered new account!');
-            return $response->withRedirect($this->router->pathFor('auth.signup'));
-        }
-
-        $this->flash->addMessage('info', 'Your have been signed up!');
-
-        $this->auth->attempt($user->email, $request->getParam('password'));
-
-        return $response->withRedirect($this->router->pathFor('home'));
-    }
-
     public function getSignIn($request, $response)
     {
         return $this->view->render($response, 'auth/login.twig');
@@ -64,17 +28,17 @@ class AuthController extends Controller
             return $response->withRedirect($this->router->pathFor('auth.signin'));
         }
 
-        return $response->withRedirect($this->router->pathFor('home'));
+        return $response->withRedirect($this->router->pathFor('dash.home'));
     }
 
     public function getSignOut($request, $response)
     {
         $this->auth->logout();
 
-        return $response->withRedirect($this->router->pathFor('home'));
+        return $response->withRedirect($this->router->pathFor('auth.signin'));
     }
 
-    public function getForgotPassword()
+    public function getForgotPassword($request, $response)
     {
         return $this->view->render($response, 'auth/password-forgot.twig');
     }
@@ -114,7 +78,7 @@ class AuthController extends Controller
         $this->sendMail($user, $data);
 
         $this->flash->addMessage('info', "Please check your email address!");
-        return $response->withRedirect($this->router->pathFor('auth.password.forgot'));
+        return $response->withRedirect($this->router->pathFor('auth.signin'));
     }
 
     public function getChagePassword($request, $response)

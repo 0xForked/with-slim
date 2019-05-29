@@ -1,4 +1,4 @@
-vendor/
+/vendor/
 .vscode/
 *.txt
 composer.lock

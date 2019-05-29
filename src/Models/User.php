@@ -6,18 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
 
-    protected $table = 'users';
-
     protected $fillable = [
-        'unique_id',
-        'username',
         'phone',
         'email',
         'password',
         'activation_code',
+        'username',
+        'forgotten_password_code',
         'forgotten_password_time',
         'status_acc',
-        'last_login'
+        'last_login',
     ];
 
     protected $guarded = [
